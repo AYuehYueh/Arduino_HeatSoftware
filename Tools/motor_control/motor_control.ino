@@ -39,14 +39,18 @@ void loop()
       steps=(command*120)-location;
       location=command*120;
     }
-    delay(450);
+    
     Serial.print("Tip:\t");
     Serial.print(command);
     Serial.print("\tLocation:\t");
     Serial.println(location);
     stepper.step(steps);
     delay(450);
-    digitalWrite(cartridge,HIGH);
+    
+    if (command==1 || command==2 || command==3){
+      digitalWrite(cartridge,HIGH);  
+    }
+    
   } 
   delay(50);
   digitalWrite(cartridge,LOW);
