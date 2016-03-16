@@ -57,7 +57,7 @@ void setup() {
   myGLCD.print("Advance", CENTER, 20);
   myGLCD.update();
   pinMode(ThTransistorPin, OUTPUT); 
-  pinMode(A11, OUTPUT); 
+//  pinMode(A11, OUTPUT); 
   pinMode(TherMistorPin, INPUT); 
   pinMode(up,INPUT);
   pinMode(down,INPUT);  
