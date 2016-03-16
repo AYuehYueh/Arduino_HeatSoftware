@@ -13,7 +13,7 @@ int command=0;
 void setup()
 {
   // set the speed of the motor 
-  stepper.setSpeed(300);
+  stepper.setSpeed(400);
   Serial.begin(9600);
   pinMode(cartridge, OUTPUT);
 }
@@ -30,26 +30,25 @@ void loop()
     else if (command==1){
       steps=(command*120)-location;
       location=command*120;
-      digitalWrite(cartridge,HIGH);
     }
     else if (command==2){
       steps=(command*120)-location;
       location=command*120;
-      digitalWrite(cartridge,HIGH);
     }
     else if (command==3){
       steps=(command*120)-location;
       location=command*120;
-      digitalWrite(cartridge,HIGH);
     }
-    delay(50);
+    delay(450);
     Serial.print("Tip:\t");
     Serial.print(command);
     Serial.print("\tLocation:\t");
     Serial.println(location);
     stepper.step(steps);
+    delay(450);
+    digitalWrite(cartridge,HIGH);
   } 
+  delay(50);
   digitalWrite(cartridge,LOW);
-  delay(450);
 
 }
