@@ -1,10 +1,13 @@
 int Time,counter=0;
+double Temp_array[]={0,0,0,0,0};
 double T,Temp=0;
 void setup() {
   Serial.begin(9600);
 }
 
 void loop() {
+
+  Serial.println(sizeof(Temp_array));
   if(counter<=9){
     Temp+=signalvalue();
     counter++;
