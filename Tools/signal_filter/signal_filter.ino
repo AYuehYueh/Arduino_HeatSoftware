@@ -1,4 +1,3 @@
-#include <Average.h>
 #define Data_size 5
 
 int Time,index=0,counter=0;
