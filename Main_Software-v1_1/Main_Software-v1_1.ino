@@ -1,4 +1,4 @@
-#include <math.h>
+//#include <math.h>
 #include <PID_v1.h>
 #include <PID_AutoTune_v0.h>
 #include <LCD5110_Graph.h>
@@ -25,7 +25,7 @@ const int opt_size[]={2,1,2};                                                   
 const int ThTransistorPin = 7, TmTransistorPin = 36, TiTransistorPin = 38;                 // Analog output pin that the transistor is attached to
 const int TherMistorPin = A7;
 
-double P = 4,I = 0.01, D = 0.005 ;                                                                 // Determines how aggressively the PID reacts to ( order: Th,Ti,Tm )
+double Kp = 4, Ki = 0.01, D = 0.005 ;                                                                 // Determines how aggressively the PID reacts to ( order: Th,Ti,Tm )
 double ThVolt;
 double PIDtargetTh;
 boolean Toheat = false,tuning = false;
@@ -39,7 +39,7 @@ double T;                                                         // temperature
 int counter=0;
 
 
-PID myPID(&T, &ThVolt, &PIDtargetTh, P, I, D, DIRECT);
+PID myPID(&T, &ThVolt, &PIDtargetTh, Kp, Ki, D, DIRECT);
 //PID_ATune aTune(&T, &ThVolt);
 
 void setup() {
@@ -87,7 +87,7 @@ void loop() {
       if(digitalRead(right)== HIGH || digitalRead(left)== HIGH){
         if(digitalRead(right) == HIGH && ctlpage[0] == 0 && ctlpage[1] == 1){
           Toheat=true;
-          myPID.SetTunings(P,I,D);
+          myPID.SetTunings(Kp,Ki,D);
           myPID.SetMode(AUTOMATIC);                                                                 // turn the PID on
         }
         else{    

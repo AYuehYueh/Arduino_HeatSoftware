@@ -37,10 +37,10 @@ void number_change(int page_index,int option_index,int directions){
     if(page_index == -2){
         switch(option_index){
           case 0:
-            P++;
+            Kp++;
           break;
           case 1:
-            I=I+0.01;
+            Ki=Ki+0.01;
           break;
           case 2:
             D=D+0.01;
@@ -65,10 +65,10 @@ void number_change(int page_index,int option_index,int directions){
     if(page_index == -2){
         switch(option_index){
           case 0:
-            P--;
+            Kp--;
           break;
           case 1:
-            I=I-0.01;
+            Ki=Ki-0.01;
           break;
           case 2:
             D=D-0.01;
@@ -156,9 +156,9 @@ void LCDdisplay(int xIndex,int yIndex,bool Toheat){
         myGLCD.drawLine(0, 9, 84, 9);
               
         myGLCD.print("Kp:", 8, 12);
-        myGLCD.printNumI(P, 26, 12);          
+        myGLCD.printNumI(Kp, 26, 12);          
         myGLCD.print("Ti:", 8, 20);
-        myGLCD.printNumI(I, 26, 20);        
+        myGLCD.printNumI(Ki, 26, 20);        
         myGLCD.print("Td:", 8, 28);
         myGLCD.printNumI(D, 26, 28);
         myGLCD.update();
@@ -233,10 +233,10 @@ void heat(){
 //      tuning = false;
 //    }
 //    if(!tuning){                                                                  //we're done, set the tuning parameters
-//      P = aTune.GetKp();
-//      I = aTune.GetKi();
+//      Kp = aTune.GetKp();
+//      Ki = aTune.GetKi();
 //      D = aTune.GetKd();
-//      myPID.SetTunings(P,I,D);
+//      myPID.SetTunings(Kp,Ki,D);
 //    }
 //  }
 //  else myPID.Compute();
