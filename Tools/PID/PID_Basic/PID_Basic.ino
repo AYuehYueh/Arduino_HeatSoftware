@@ -13,7 +13,8 @@ double Temp_array[Data_size];
 double PIDtargetTh = 94 , ThVolt, Output, T, R;
 const int ThTransistorPin = Transistor;                                                  // Analog output pin that the transistor is attached to
 const int ThermistorPin = Thermistor;
-int sensorValue = 0, LastTime = 0 ;
+int sensorValue = 0 ;
+unsigned long LastTime = 0 ;
 
 //Specify the links and initial tuning parameters
 double Kp=256, Ki=0, Kd=0;
@@ -39,6 +40,7 @@ void loop()
     Serial.print("\tVolt%\t");
     Serial.println(ThVolt); 
   }
+  delay(20);
 }
 
 void thermistor(){
